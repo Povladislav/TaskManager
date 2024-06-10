@@ -12,7 +12,7 @@ class Task(models.Model):
 
     status = models.CharField(max_length=20, choices=Statuses.choices, default=Statuses.WAITING_FOR_WORKER)
     client = models.ForeignKey(User, on_delete=models.PROTECT, related_name="client_tasks")
-    # text_of_task = models.CharField(max_length=50)
+    text_of_task = models.CharField(max_length=50, null=True, blank=True)
     worker = models.ForeignKey(User, on_delete=models.PROTECT, null=True, blank=True, related_name="worker_tasks")
     report = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateField(auto_now_add=True)
