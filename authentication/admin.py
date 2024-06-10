@@ -7,7 +7,7 @@ from authentication.models import User
 class CustomUserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        ('Personal info', {'fields': ('email', 'first_name', 'second_name', 'patronymic', 'phone_number', 'role')}),
+        ('Personal info', {'fields': ('email', 'first_name', 'second_name', 'patronymic', 'phone_number', 'role', 'photo')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
@@ -15,11 +15,11 @@ class CustomUserAdmin(BaseUserAdmin):
         (None, {
             'classes': ('wide',),
             'fields': (
-                'username', 'email', 'first_name', 'second_name', 'patronymic', 'phone_number', 'role', 'password1',
+                'username', 'email', 'first_name', 'second_name', 'patronymic', 'phone_number', 'role', 'photo', 'password1',
                 'password2'),
         }),
     )
-    list_display = ('username', 'email', 'first_name', 'second_name', 'patronymic', 'phone_number', 'role', 'is_staff')
+    list_display = ('username', 'email', 'first_name', 'second_name', 'patronymic', 'phone_number', 'role', 'is_staff', 'photo')
     search_fields = ('username', 'email', 'first_name', 'second_name', 'patronymic', 'phone_number')
     ordering = ('username',)
 

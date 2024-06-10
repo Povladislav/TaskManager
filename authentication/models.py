@@ -38,6 +38,7 @@ class User(AbstractUser):
     second_name = models.CharField(max_length=15, help_text="Фамилия")
     patronymic = models.CharField(max_length=15, help_text="Отчество")
     phone_number = PhoneNumberField(unique=True, help_text="Контактный номер телефона")
+    photo = models.ImageField(upload_to='photos/', help_text="Фото сотрудника")
 
     def __str__(self):
         return f"{self.first_name} {self.second_name}"
